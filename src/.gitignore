@@ -1,0 +1,71 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.so
+
+# virtual environment
+venv/
+.env/
+.env.*          # أي نسخة environment file
+*.egg-info/
+dist/
+build/
+
+# =========================
+# Docker
+# =========================
+*.log
+docker-compose.override.yml
+**/Dockerfile.build
+**/docker-compose.override.yml
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# =========================
+# Database / Data
+# =========================
+*.sqlite3
+*.db
+*.sql
+pgdata/
+*.bak
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+*.bak
+
+# =========================
+# Tests / Coverage
+# =========================
+.coverage
+htmlcov/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Misc
+# =========================
+*.env.local
+.env.production
