@@ -1,21 +1,21 @@
-from pydantic_settings import BaseSettings
-class settings(BaseSettings):
-    APP_NAME : str
-    APP_VERSION : str
-    Postgress_USERNAME: str
-    Postgress_PASSWORD: str
-    Postgress_HOST: str
-    Postgress_PORT: int
-    Postgress_MAIN_DATABASE: str
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
-    class config:
-        env_file = ".env"
 
-    
+class Settings(BaseSettings):
+    APP_NAME: str
+    APP_VERSION: str
+
+    POSTGRES_USERNAME: str
+    POSTGRES_PASSWORD: str
+    POSTGRES_HOST: str
+    POSTGRES_PORT: int
+    POSTGRES_MAIN_DATABASE: str
+
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        extra="ignore",
+    )
+
 
 def get_settings():
-    return settings()   
-
-
-
-
+    return Settings()
