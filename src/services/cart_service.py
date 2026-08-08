@@ -202,7 +202,13 @@ class CartService:
             detail="Item does not belong to this cart"
         )
 
-      await self.cart_product_repo.delete(cart_item)
+      success = await self.cart_product_repo.delete(cart_item)
+
+      if not success:
+        raise HTTPException(
+            status_code=500,
+            detail="internal server error"
+        )
 
       return {
         "message": "Item removed successfully"

@@ -43,11 +43,18 @@ class PaymentService:
                 detail="Payment already exists for this order"
             )
 
+
+        if request.amount < order.total:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Payment amount is less than the order total"
+            )
+
         payment = Payment( 
             order_id=request.order_id,
             amount=request.amount,
             payment_method=request.payment_method,
-            payment_status=PaymentStatus.pending,
+            payment_status=PaymentStatus.COMPLETED,
             transaction_id=request.transaction_id,
         )
 

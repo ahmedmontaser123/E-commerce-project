@@ -35,6 +35,9 @@ class CartProductRepository:
 
     async def delete(self, cart_product: CartProduct):
         await self.session.delete(cart_product)
+        await self.session.commit()
+        await self.session.refresh(cart_product)
+        return True
 
     async def delete_items(self, cart_id):
         stmt = delete(CartProduct).where(
