@@ -47,7 +47,6 @@ class CartProductRepository:
         await self.session.execute(stmt)
 
 
-    
 
     async def get_cart_items(self, cart_id: int):
         result = await self.session.execute(
